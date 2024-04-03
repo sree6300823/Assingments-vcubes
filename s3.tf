@@ -5,7 +5,7 @@ provider "aws" {
 }
 # create s3 bucket
 resource "aws_s3_bucket" "bucket123" {
-  bucket = "my-tf-test-bucket123456789"
+  bucket = "my-tf-test-bucket123456789"     # Optional prefix for the bucket name
 
   tags = {
     Name        = "My bucket1"
@@ -15,6 +15,10 @@ resource "aws_s3_bucket" "bucket123" {
 
 resource "aws_s3_bucket_object" "objec12" {
   bucket = "my-tf-test-bucket123456789"
-  key    = "main"
-  source = "D:\\dev"
+  key    = "main"     # Specify the key (filename) under which to store the file in the bucket
+ source = "D:\\dev"   # Path to the local file you want to upload
+  
+tags = {
+    Name        = "MyObject"
+  }
 }
